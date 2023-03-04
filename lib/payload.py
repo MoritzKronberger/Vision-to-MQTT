@@ -9,6 +9,7 @@ class Payload():
 
     def publish(self, mqtt_client: MQTTClient):
         data = self.__dict__
+        data = {key: value for key, value in data.items() if key != 'TOPIC'}
         mqtt_client.publish(
             self.TOPIC,
             data
