@@ -17,42 +17,33 @@ class Payload():
 
 
 class Boat(Payload):
-    position_x_px: float
-    position_y_px: float
-    direction_x: float
-    direction_y: float
+    boat_visible: bool
     angle_boat_garbage_deg: float  # pos: clockwise, neg: counter-clockwise
-    speed_boat_m_per_s: float
+    distance_to_garbage_m: float
 
     def __init__(self, 
-                 position_x_px: float,
-                 position_y_px: float,
-                 direction_x: float,
-                 direction_y: float,
+                 boat_visible: bool,
                  angle_boat_garbage_deg: float,
-                 speed_boat_m_per_s: float) -> None:
+                 distance_to_garbage_m: float) -> None:
         super().__init__('boat')
-        self.position_x_px = position_x_px
-        self.position_y_px = position_y_px
-        self.direction_x = direction_x
-        self.direction_y = direction_y
+        self.boat_visible = boat_visible
         self.angle_boat_garbage_deg = angle_boat_garbage_deg  
-        self.speed_boat_m_per_s = speed_boat_m_per_s
+        self.distance_to_garbage_m = distance_to_garbage_m
         
 
 
 class Garbage(Payload):
-    position_x_px: float
-    position_y_px: float
+    position_x_m: float
+    position_y_m: float
     radius: float
 
     def __init__(self,     
-                 position_x_px: float,
-                 position_y_px: float,
+                 position_x_m: float,
+                 position_y_m: float,
                  radius: float) -> None:
         super().__init__('garbage')
-        self.position_x_px = position_x_px
-        self.position_y_px = position_y_px
+        self.position_x_m = position_x_m
+        self.position_y_m = position_y_m
         self.radius = radius
 
 
