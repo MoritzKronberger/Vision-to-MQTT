@@ -31,11 +31,11 @@ def main():
     mqtt_client = MQTTClient()
     mqtt_client.connect(BROKER_IP_ADDRESS)
     while True:
-        # vision_data = read_output(VISION_OUTPUT_FILENAME)
-        # if vision_data is not None:
-        #     garbage, boat = vision_data
-        #     send_vision_data(mqtt_client, garbage, boat)
-        send_mock_data(mqtt_client)
+        vision_data = read_output(VISION_OUTPUT_FILENAME)
+        if vision_data is not None:
+            garbage, boat = vision_data
+            send_vision_data(mqtt_client, garbage, boat)
+        # send_mock_data(mqtt_client)
         time.sleep(LOOP_TIMEOUT)
 
 if __name__ == "__main__":
